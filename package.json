@@ -1,0 +1,33 @@
+{
+  "name": "sodexo-ofx",
+  "version": "0.0.1",
+  "description": "Export Sodexo data as OFX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ravishi/sodexo-ofx.git"
+  },
+  "author": "Dirley Rodrigues <dirley@romenor.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ravishi/sodexo-ofx/issues"
+  },
+  "homepage": "https://github.com/ravishi/sodexo-ofx#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "p-try": "^1.0.0",
+    "puppeteer": "^1.4.0",
+    "shorthash": "0.0.2",
+    "yargs": "^11.0.0"
+  }
+}
