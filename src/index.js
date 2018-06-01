@@ -172,8 +172,8 @@ async function main(options) {
 
                 const hour = (
                     unsafeHour.length === 8 ? unsafeHour
-                        // XXX turns 80:30:2 into 08:03:02, and 0:: into 00:00:00
-                        : unsafeHour.replace(':', '').padStart(8).match(/.{1,2}/g).join(':')
+                        // XXX turns 80:30:2 into 08:03:02 and 0:: into 00:00:00
+                        : unsafeHour.replace(/:+/g, '').padStart(6, '0').match(/.{1,2}/g).join(':')
                 );
 
                 const idString = (
@@ -181,11 +181,13 @@ async function main(options) {
                         : [date, hour, description.trim()].join(':')
                 );
 
+                const amount = balance * parseInt(`${indicatorTransaction.trim()}1`);
+
                 return {
                     id: sh.unique(idString),
                     date: new Date(`${new Date(`${date}T${hour}Z`).toGMTString()}-03`),
                     memo: description.trim(),
-                    amount: balance * ({'-': -1, '+': 1}[indicatorTransaction.trim()]),
+                    amount,
                 };
             });
         });
